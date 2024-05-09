@@ -93,16 +93,16 @@ public:
     // 设置html字符串
     Php::Value html(Php::Parameters &params)
     {
-        Php::Value value = params[0];
-        webview_set_html(w, value);
+        std::string htmlContent = params[0].stringValue();
+        webview_set_html(w, htmlContent);
         return this;
     }
 
     // 设置url
     Php::Value navigate(Php::Parameters &params)
     {
-        Php::Value value = params[0];
-        webview_navigate(w, value);
+        std::string urlContent = params[0].stringValue();
+        webview_navigate(w, urlContent);
         return this;
     }
 
