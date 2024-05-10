@@ -59,8 +59,8 @@ public:
     // 初始化注入js,代码在window.onload之前执行
     Php::Value init(Php::Parameters &params)
     {
-        Php::Value value = params[0];
-        webview_init(w, value);
+        std::string init = params[0].stringValue();
+        webview_init(w, init.c_str());
         return this;
     }
 
@@ -69,8 +69,8 @@ public:
     // 接收关于评估结果的通知。
     Php::Value eval(Php::Parameters &params)
     {
-        Php::Value value = params[0];
-        webview_eval(w, value);
+        std::string eval = params[0].stringValue();
+        webview_eval(w, eval.c_str());
         return this;
     }
 
@@ -94,7 +94,7 @@ public:
     Php::Value html(Php::Parameters &params)
     {
         std::string htmlContent = params[0].stringValue();
-        webview_set_html(w, htmlContent);
+        webview_set_html(w, htmlContent.c_str());
         return this;
     }
 
@@ -102,7 +102,7 @@ public:
     Php::Value navigate(Php::Parameters &params)
     {
         std::string urlContent = params[0].stringValue();
-        webview_navigate(w, urlContent);
+        webview_navigate(w, urlContent.c_str());
         return this;
     }
 
