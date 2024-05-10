@@ -1,4 +1,4 @@
 <?php
   
 $webview =new WebView();  
-$webview->create()->run();  
+$webview->create(0)->run()->destroy();  
