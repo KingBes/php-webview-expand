@@ -1,5 +1,7 @@
 # php-webview-expand
 
+需要安装[PHPCPP](https://www.phpcpp.com/)
+
 [下载](https://github.com/KingBes/php-webview-expand/releases)
 
 配置 `php.ini` 文件
@@ -36,3 +38,24 @@ $webview->run();
 // 销毁
 $webview->destroy();
 ```
+
+## 示例
+
+```php
+<?php
+
+$w->create(false)
+->title("php")
+->size(400,380,1)
+->html("<p>html-php</p>")
+->run()
+->destroy();
+```
+
+效果
+![](演示.png)
+
+### Linux桌面系统测试结果
+
+`ubnutu`桌面版->成功
+`deepin`桌面版->失败(只有空白窗口)
